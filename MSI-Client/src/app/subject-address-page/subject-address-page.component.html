@@ -1,0 +1,51 @@
+<h1 class="text-center">Please enter the details below</h1>
+
+<form #detailsForm="ngForm" class="m-5" (ngSubmit)="onSubmit(detailsForm.value)" >
+    <em>*All fields are required.</em>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="FirstName">First Name</label>
+        <input type="text" class="form-control" [(ngModel)]="FirstName" name="FirstName" id="FirstName" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="LastName">Last Name</label>
+        <input type="text" class="form-control" [(ngModel)]="LastName" name="LastName" id="LastName" required>
+      </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="Mi">Mi</label>
+          <input type="text" class="form-control" [(ngModel)]="Mi" name="Mi" id="Mi" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="Suffix">Suffix</label>
+          <input type="text" class="form-control" [(ngModel)]="Suffix" name="Suffix" id="Suffix" required>
+        </div>
+      </div>
+    <div class="form-group">
+      <label for="Address">Address</label>
+      <input type="text" class="form-control" [(ngModel)]="Address" name="Address" id="Address" 
+      placeholder="7330 College Drive" required>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="City">City</label>
+        <input type="text" class="form-control" [(ngModel)]="City" name="City" id="City" required>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="State">State</label>
+        <input type="text" class="form-control" [(ngModel)]="State" name="State" id="State" required>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="Zip">Zip</label>
+        <input type="text" class="form-control" [(ngModel)]="Zip" name="Zip" id="Zip" required>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center mt-5">
+        <button type="submit" [disabled]="!detailsForm.valid" class="btn btn-success">Save details</button>
+    </div>  
+  </form>
+
+  <div [ngClass]="(success)?'alert alert-success mt-10 text-center':'d-none alert alert-success mt-10 text-center'" role="alert">
+    Details are succefully persisted in the database!
+  </div>
